@@ -1,0 +1,29 @@
+
+.editor_page {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+.editor {
+    width: 100%;
+    height: 100%;
+
+    flex-grow: 1;
+}
+
+.editor_textbox {
+    width: 100%;
+    height: 100%;
+
+    /* -webkit-text-fill-color: none;
+    background: none; */
+}
+.editor_display {
+    width: 100%;
+    height: 100%;
+}
+
+.output {
+    flex-grow: 1;
+}

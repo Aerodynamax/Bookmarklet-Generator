@@ -1,0 +1,25 @@
+
+.bookmarklet-btn {
+    display: inline-block;
+    background-color: #c83e4d;
+    color: rgb(255, 255, 255) !important;
+    text-align: center;
+    text-decoration: none;
+    padding: 25px;
+    border-radius: 10px;
+    transition: all ease-in-out 200ms;
+}
+
+.bookmarklet-btn:hover {
+    transform: scale(1.04); /* use 'transform' instead of 'scale' */
+}
+
+.bookmarklet-btn:active {
+    color: rgba(255, 255, 255, 0.8) !important;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    transform: scale(0.98);
+}
+
+.secondary {
+    background-color: #989898;
+}

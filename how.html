@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Bookmarklet creator</title>
+    <link rel="shortcut icon" href="https://img.icons8.com/arcade/64/null/bookmark-ribbon.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="./css/global.styles.css">
+    <link rel="stylesheet" href="./css/bookmarklet.styles.css">
+
+    <!-- highlight.js [https://highlightjs.org/] -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/default.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/highlight.min.js"></script>
+</head>
+<body>
+    <div id="page">
+        <nav class="topbar">
+            <a href="./index.html">home</a>
+            <a href="./how.html">how it works</a>
+            <a href="./design.html">designer</a>
+        </nav>
+    
+        <div id="body">
+            <div class="header">
+                <h1>Simple</h1>
+            </div>
+
+            <div class="content">
+
+                <div class="content-subhead">
+                    What's a bookmarklet?
+                </div>
+                <p>
+                    Bookmarklets are small pieces of JavaScript code 
+                    that can be saved as bookmarks in your web browser. 
+                    When you click on a bookmarklet, the code is executed 
+                    on the current web page, allowing you to perform 
+                    various tasks and manipulate the content of the page.
+                </p>
+
+                <div class="content-subhead">
+                    Bookmarklet base
+                </div>
+                <p>
+                    Bookmarklets are written like this:
+                </p>
+                <div class="center-x">
+                    <pre><code class="code-box">javascript:(function(){ /* your code in here */ })();</code></pre>
+                </div>
+                <p>That may look confusing, so lets break it down...</p>
+
+
+
+
+                <div class="content-subhead">
+                    Breakdown
+                </div>
+
+                <p>
+                    In order to convert the bookmark into a bookmarklet, 
+                    we need to tell the browser that we are running javascript.
+                    we do this like you would a domain, (eg <span class="highlight">http:</span>// or <span class="highlight">https:</span>//)
+                </p>
+                <div class="center-x">
+                    <pre><code class="code-box">javascript:</code></pre>
+                </div>
+
+                <p>
+                    This is all you need for a bookmarklet, and in it's current 
+                    state you can run what ever you wan't.  e.g.
+                </p>
+                <div class="center-x">
+                    <pre><code class="code-box">javascript:alert("This is javascript running in an bookmark");</code></pre>
+                </div>
+
+                <p>
+                    While this works, its a pretty far cry from what we're
+                    using.  This is due to compatability issues in longer 
+                    sections of code (which we use).  In order to compat this,
+                    you can slap it all in a function.
+                </p>
+                <div class="center-x">
+<pre><code class="code-box">(function(){
+    alert("This is javascript running in an bookmark");
+});</code></pre>
+                </div>
+
+                <p>
+                    But wait!  That doesn't work!
+                </p>
+                <p>
+                    Thats because we never ran the function.  It's just sitting 
+                    there, waiting, for someone, anyone, to run it.  If we add 
+                    the brackets to run the it then we've got the completed script 
+                    in all its glory!
+                </p>
+                <div class="center-x">
+<pre><code class="code-box">(function(){
+    alert("This is javascript running in an bookmark");
+})();</code></pre>
+                </div>
+
+                <p>
+                    Now I'm sure you've noticed how spread out this whole thing is.  
+                    This, however, isn't a problem as the bookmark will remove the 
+                    lines automatically, in the process making it really hard to 
+                    read. :\
+                </p>
+
+
+
+
+                <div class="content-subhead">
+                    Displaying it to the user
+                </div>
+
+                <p>
+                    Anyways, we don't need to worry about readability as we can hide 
+                    it all behind an <span class="comment">`&lt;a&gt;`</span> tag, the 
+                    name of which being what is displayed as the bookmark title.
+                </p>
+                <div class="center-x">
+                    <pre><code class="code-box"> &lt;a href="#YOUR_CODE_HERE"&gt;YOUR TITLE&lt;/a&gt; </code></pre>
+                </div>
+
+                <p>
+                    This simply works as an styleable, clickable link that just like 
+                    websites, can be placed/dragged into the bookmark bar.
+                </p>
+                <p>
+                    Putting together what we have so far, We've got an pretty useful 
+                    base.  You can expand this with your own javascript an make an
+                    very usful bookmarklet app.
+                </p>
+                <div class="center-x">
+                    <pre><code class="code-box language-html"> &lt;a href='(function(){alert("This is javascript running in an bookmark");})();'&gt;Demo Alert&lt;/a&gt; </code></pre>
+                </div>
+            </div>
+
+            <div class="header">
+                <h1>
+                    Advanced
+                </h1>
+            </div>
+            
+            <div class="content">
+                <p>
+                    Now you have a working bookmarklet, let's make it display something 
+                    cool!
+                </p>
+                <p>
+                    Let's make it display an html page like an extension (for no reason 
+                    at all).
+                </p>
+                <div class="center-x">
+<pre><code class="code-box language-javascript">let iframe = document.createElement("iframe");
+iframe.style.position = "fixed";
+iframe.style.top = "10px";
+iframe.style.right = "10px";
+iframe.style.background = "#fff";
+document.append(iframe);
+</code></pre>
+                </div>
+
+                <p>
+                    This code is the officially supported way of adding conent to a web page 
+                    using JavaScript.  This example creates an iframe, fixes it to the top 
+                    right of the page, gives it a background and adds it to the body.  This 
+                    small peice of code already takes up alot of the available if you want to stay 
+                    <a href="https://www.squarefree.com/bookmarklets/limits.html" target="_blank" rel="noopener noreferrer">compatible with older systems</a>.  
+                    The major space horders is iframes content and the css for the iframe itself.  
+                    The easiest of these to improve is the css.  We can use <span class="comment">`style.cssText`</span>, 
+                    simply putting in the css like it were inside the <span class="comment">`style=''`</span> tag.
+                </p>
+                <div class="center-x">
+<pre><code class="code-box language-javascript">let iframe = document.createElement("iframe");
+iframe.style.cssText="position: fixed; top: 10px; right: 10px; background: rgb(255, 255, 255);";
+document.body.append(iframe);
+</code></pre>
+                </div>
+
+                <p>
+                    Now we will give the iframe some content!  In testing, I've found that while 
+                    this method should work for the HTML (<code class="inline-code-box language-javascript">iframe.contentDocument.body.append()</code>), 
+                    It has the same problem as before, taking up too much space per element.  Instead, 
+                    you can get the element using it's <span class="comment">`id`</span> and directly 
+                    modify its html.
+                </p>
+                <div class="center-x">
+<pre><code class="code-box language-javascript">let iframe = document.createElement("iframe");
+iframe.id = "my_iframe";
+iframe.style.cssText = "position: fixed; top: 10px; right: 10px; background: rgb(255, 255, 255);";
+document.body.append(iframe);
+document.getElementById("my_iframe").contentDocument.body.innerHTML += `&lt;p&gt;Content in my iframe&lt;/p&gt;`
+</code></pre>
+                </div>
+                
+                <p>
+                    This works well, however it has a problem.  You have to make sure you don't 
+                    use the <span class="comment">`</span> character for JavaScript strings as it 
+                    will break everything.  Special characters like <span class="comment">`&lt;`</span> 
+                    or <span class="comment">`&gt;`</span> may also pose issues.  To circumvent this, 
+                    we can use url encoding and JavaScript's built in base64 functions.  
+                    <span class="comment">`encodeURIComponent()`</span> takes the special characters 
+                    and converts them into an browser format, then <span class="comment">`btoa()`</span> 
+                    converts them to base64.
+                </p>
+                <div class="center-x">
+<pre><code class="code-box language-javascript">> encodeURIComponent(`&lt;p&gt;Content in my iframe&lt;/p&gt;`);
+'%3Cp%3EContent%20in%20my%20iframe%3C%2Fp%3E'
+> btoa(`%3Cp%3EContent%20in%20my%20iframe%3C%2Fp%3E`);
+'JTNDcCUzRUNvbnRlbnQlMjBpbiUyMG15JTIwaWZyYW1lJTNDJTJGcCUzRQ=='
+</code></pre>
+                </div>
+
+                <div class="content-subhead">
+                    Putting it all together
+                </div>
+
+                <p>
+                    Now it's time to put it all together.  To bring the original back we will reverse the 
+                    process, instead using the <span class="comment">`atob()`</span> function to convert base64 
+                    back into ascii.  Then using <span class="comment">`decodeURIComponent()`</span> to get the
+                    original html.
+                </p>
+                <div class="center-x">
+                    <pre><code class="code-box language-javascript">> atob(`JTNDcCUzRUNvbnRlbnQlMjBpbiUyMG15JTIwaWZyYW1lJTNDJTJGcCUzRQ==`);
+'%3Cp%3EContent%20in%20my%20iframe%3C%2Fp%3E'
+> decodeURIComponent(`%3Cp%3EContent%20in%20my%20iframe%3C%2Fp%3E`);
+'&lt;p&gt;Content in my iframe&lt;/p&gt;'
+</code></pre>
+                </div>
+
+
+                <p>
+                    Now simply copy the <span class="comment">`atob()`</span> function you created into the 
+                    bookmarklet we prepared earlier and...
+                </p>
+                <div class="center-x">
+                    <pre><code class="code-box language-javascript">javascript:(function(){
+    let iframe = document.createElement("iframe");
+    iframe.id = "my_iframe";
+    iframe.style.cssText = "position: fixed; top: 10px; right: 10px; background: rgb(255, 255, 255);";
+    document.body.append(iframe);
+    document.getElementById("my_iframe").contentDocument.body.innerHTML += decodeURIComponent(atob(`JTNDcCUzRUNvbnRlbnQlMjBpbiUyMG15JTIwaWZyYW1lJTNDJTJGcCUzRQ==`));
+})();
+</code></pre>
+                </div>
+                <p>
+                    Shoot!  It displays properly, however now it doesn't go away!  What we need is an 
+                    if statement that checks whether the iframe already exists or not, if it does, delete
+                    it and if it doesn't, create it.  
+                </p>
+                <div class="center-x">
+                    <pre><code class="code-box language-javascript">my_bookmarklet = document.getElementById('my_iframe');
+if(my_bookmarklet){
+    my_bookmarklet.remove();
+} else{
+    let iframe = document.createElement("iframe");
+    iframe.id = "my_iframe";
+    iframe.style.cssText = "position: fixed; top: 10px; right: 10px; background: rgb(255, 255, 255);";
+    document.body.append(iframe);
+    document.getElementById("my_iframe").contentDocument.body.innerHTML += decodeURIComponent(atob(`JTNDcCUzRUNvbnRlbnQlMjBpbiUyMG15JTIwaWZyYW1lJTNDJTJGcCUzRQ==`));
+};
+</code></pre>
+                </div>
+
+                <p>
+                    Ah, there we go.  This piece of code simply trys to get <span class="comment">`my_iframe`</span>.  
+                    If it can, it deletes it and if it can't, then it adds it.  Now adding this to the original base, 
+                    we get the actual completed bookmarklet.
+                </p>
+                <div class="center-x">
+<pre><code class="code-box language-javascript">javascript:(function(){
+    my_bookmarklet = document.getElementById('my_iframe');
+    if(my_bookmarklet){
+        my_bookmarklet.remove();
+    } else{
+        let iframe = document.createElement("iframe");
+        iframe.id = "my_iframe";
+        iframe.style.cssText = "position: fixed; top: 10px; right: 10px; background: rgb(255, 255, 255);";
+        document.body.append(iframe);
+        document.getElementById("my_iframe").contentDocument.body.innerHTML += decodeURIComponent(atob(`JTNDcCUzRUNvbnRlbnQlMjBpbiUyMG15JTIwaWZyYW1lJTNDJTJGcCUzRQ==`));
+    };
+})();
+</code></pre>
+                </div>
+
+            </div>
+
+
+
+
+            <div class="header">
+                <h1>
+                    Going forward
+                </h1>
+            </div>
+            
+            <div class="content">
+                <p>
+                    This still leaves lots to be desired:
+                </p>
+                <ul>
+                    <li>Only closes when you press the bookmarklet again</li>
+                    <li>No fancy animations</li>
+                </ul>
+                <p>
+                    However it is a great starting point.  If all of this was confusing, 
+                    don't worry!  Our service allows you to forget about all this and stick 
+                    to the designing.  Simply add your html, css and js into the web editor, 
+                    click save and copy your bookmarklet.  Simple as that!
+                </p>
+            </div>
+            <div class="center-x">
+                <a href="./design.html" class="bookmarklet-btn">start designing</a>
+            </div>
+            <div class="padding"></div>
+
+        </div>
+        <footer class="footer">
+            <div class="left-links">
+                <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer license">© Copyright 2023, Max Bunker</a>
+            </div>
+            <div class="right-links">
+                <a href="https://icons8.com/" target="_blank" rel="noopener noreferrer">images provided by <span class="url">icons8</span></a>
+            </div>
+        </footer>
+        
+    </div>
+
+    <script>
+        hljs.configure({languages: ["javascript","html"]});
+        document.querySelectorAll("code").forEach(code_block => {
+            hljs.highlightBlock(code_block);
+        })
+    </script>
+
+</body>
+</html>

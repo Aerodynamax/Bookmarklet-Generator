@@ -1,0 +1,271 @@
+/* GLOBALS */
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    font-family: monospace;
+    font-size: 18px;
+}
+a {
+    text-decoration: none;
+}
+
+/* PAGE STYLING */
+#page {
+    display: flex;
+
+    height: 100%;
+    min-height: 100%;
+    width: 100%;
+    min-width: 100%;
+
+    overflow-x: hidden;
+
+    flex-direction: column;
+    align-items: stretch;
+}
+#body {
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+
+.topbar {
+    width: 100%;
+    min-height: 10vh;
+
+    margin: 0;
+    padding: 0;
+
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items:center;
+
+    background-color: #272635;
+}
+.topbar a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    
+    width: 100%;
+    height: 100%;
+
+    font-size: 28px;
+    color: #E8E9F3;
+    text-align: center;
+    text-decoration: none;
+}
+.topbar a:hover {
+    background-color: #e8e9f355;
+    color: #fff;
+}
+
+
+
+/* PAGE CONTENTS PUSH FOOTER DOWN */
+.page-contents {
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+
+/* PAGE CONTENT (PURE CSS.io) */
+.header {
+    margin: 0;
+    padding: 2.5em 2em 0;
+
+    color: black;
+    
+
+    text-align: center;
+    
+    border-bottom: 1px solid var(--footer-bg-color);
+}
+    .header h1 {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+        color: black;
+
+        margin: 0.2em 0;
+
+        font-size: 3em;
+        font-weight: bold;
+    }
+    .header h2 {
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        
+        color: #c83e4d;
+
+        font-weight: 300;
+        padding: 0;
+    }
+.content-subhead {
+    color: black;
+    
+    margin: 20px 0 20px 0;
+    font-weight: 900;
+}
+.content {
+    color: black;
+    font-weight: 400;
+
+    margin: 0 auto;
+    padding: 2em;
+    max-width: 1000px;
+
+    line-height: 1.6em;
+    font-size: 20px;
+
+    position: relative;
+
+    padding-top: 50px;
+}
+.content p {
+    color: black;
+    margin-bottom: 1em;
+}
+.content a {
+    text-decoration: none;
+
+    color: #7D70BA;
+    word-wrap: break-word;
+}
+.content a:hover {
+    text-decoration: underline;
+}
+
+/* URLS */
+.url {
+    display: inline;
+
+    font-weight: 200;
+
+    color: #c83e4d;
+
+    padding-bottom: 1px;
+    border-bottom: #c83e4d solid 1px;
+}
+.url:hover {
+    font-weight: 600;
+    padding-bottom: 0;
+    border-bottom: #c83e4d solid 2px;
+}
+
+/* HIGHLIGHT */
+.highlight {
+    display: inline;
+    color: #c83e4d;
+}
+.bold {
+    font-weight: bold;
+}
+.comment {
+    display: inline;
+    color: #c83e4d;
+    font-weight: bold;
+}
+/* CODE STYLING */
+.code-box {
+    border-radius:10px;
+    text-align:left;
+
+    overflow-x: scroll;
+
+    /* word-wrap: break-word !important;
+    word-break: break-all !important;
+    white-space: pre-wrap !important; */
+}
+p > code.hljs  {
+    display:inline;
+    border-radius:10px;
+    text-align:left;
+}
+
+/* CENTER */
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.center-x {
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    gap: 10px;
+}
+.center-x * {
+    max-width: 100%;
+}
+.center-y {
+    display: flex;
+    align-items: center;
+}
+
+/* Two buttons with text in between */
+.two-buttons {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    justify-items: center;
+    grid-gap: 10px;
+    margin: 0 auto;
+    min-width: 100%;
+    max-width: 100%;
+}
+.left {
+    display: flex;
+    justify-self: end;
+}
+.right {
+    display: flex;
+    justify-self: start;
+}
+
+/* large text */
+.big-text {
+    font-size: var(--big-text-font-size);
+}
+
+/* padding */
+.padding {
+    margin: 10vh;
+}
+
+/* FOOTER */
+.footer {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: #f1f1f1;
+    color: black;
+}
+  
+.left-links {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+  
+.right-links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+  
+.footer a {
+    color: black;
+    text-decoration: none;
+    margin: 0 10px;
+
+    padding: 3vh;
+}
+
+:root {
+    --nav-font-size: 30px;
+    --big-text-font-size: 30px;
+}

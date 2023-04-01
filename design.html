@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Bookmarklet creator</title>
+    <link rel="shortcut icon" href="https://img.icons8.com/arcade/64/null/bookmark-ribbon.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="./css/global.styles.css">
+    <link rel="stylesheet" href="./css/bookmarklet.styles.css">
+    <link rel="stylesheet" href="./css/creator.styles.css">
+
+    <script language="javascript" type="text/javascript" src="./editarea/edit_area/edit_area_full.js"></script>
+    <script language="javascript" type="text/javascript">
+        editAreaLoader.init({
+            id : "html-code",
+
+            min_width: "inherit",
+            min_height: "inherit",
+
+            allow_resize: "no",
+
+            syntax: "html",
+            start_highlight: true,
+
+            replace_tab_by_spaces: 4,
+
+            toolbar: "search, go_to_line, |, save, undo, redo, |, select_font,|, change_smooth_selection, highlight, reset_highlight, word_wrap, |, help",
+
+            is_editable: true,
+            allow_toggle: false,
+
+            EA_load_callback: "loadHTML",
+            save_callback: "runHTML"
+        });
+    </script>
+    <script src="./js/html-bookmarklet.js"></script>
+    <script src="./js/js-bookmarklet.js"></script>
+    <script src="./js/detectmobilebrowser.js"></script>
+</head>
+
+<body>
+    <div id="page">
+        <nav class="topbar">
+            <a href="./index.html">home</a>
+            <a href="./how.html">how it works</a>
+            <a href="./design.html">designer</a>
+        </nav>
+    
+        <div class="editor">
+            <div class="left">
+                <textarea id="html-code">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag into bookmarklets bar</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+        }
+        /* CSS CODE */
+        .BOOKMARKLET {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .title {
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            border-bottom: 1px solid #f3f2f2;
+
+        }
+        .content {
+            padding: 10px;
+            flex-grow: 1;
+            flex-shrink: 0;
+        }
+        .content p {
+            padding: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 3%;
+            background-color: #f1f1f1;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="BOOKMARKLET">
+        <!-- HTML CODE -->
+        <h1 class="title">Bookmarklet Name</h1>
+        <div class="content">
+            <p>- Press the save icon to update</p>
+            <p>- Drag the bookmarklet button into your bookmars bar (ctrl+shift+b) to install</p>
+            <p>- Works on most pages (other than the default one!)</p>
+        </div>
+        <footer class="footer">
+            <a href="./advanced.html" target="_parent" rel="noopener noreferrer">Not what you after?  try this one!</a>
+        </footer>
+    </div>
+
+    
+    <script>
+        // JS CODE
+    </script>
+
+</body>
+</html>
+                </textarea>
+            </div>
+            <div class="right">
+                <div class="output-center">
+                    <iframe id="BOOKMARKLET_OUTPUT"></iframe>
+                    <a href="#" id="installer" class="bookmarklet-btn">Drag into bookmarklets bar</a>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="left-links">
+                <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">© Copyright 2023, Max Bunker</a>
+            </div>
+            <div class="right-links">
+                <a href="https://icons8.com/" target="_blank" rel="noopener noreferrer">images provided by <span class="url">icons8</span></a>
+            </div>
+        </footer>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Bookmarklet creator</title>
+    <link rel="shortcut icon" href="https://img.icons8.com/arcade/64/null/bookmark-ribbon.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="./css/global.styles.css">
+    <link rel="stylesheet" href="./css/bookmarklet.styles.css">
+    <link rel="stylesheet" href="./css/creator.styles.css">
+
+    <script language="javascript" type="text/javascript" src="./editarea/edit_area/edit_area_full.js"></script>
+    <script language="javascript" type="text/javascript">
+        editAreaLoader.init({
+            id : "js-code",
+
+            min_width: "inherit",
+            min_height: "inherit",
+
+            allow_resize: "no",
+
+            syntax: "js",
+            start_highlight: true,
+
+            replace_tab_by_spaces: 4,
+
+            toolbar: "search, go_to_line, |, save, undo, redo, |, select_font,|, change_smooth_selection, highlight, reset_highlight, word_wrap, |, help",
+
+            is_editable: true,
+            allow_toggle: false,
+
+            EA_load_callback: "load",
+            save_callback: "run"
+        });
+    </script>
+    <script src="./js/js-bookmarklet.js"></script>
+</head>
+
+<body>
+    <div id="page">
+        <nav class="topbar">
+            <a href="./index.html">home</a>
+            <a href="./how.html">how it works</a>
+            <a href="./design.html">designer</a>
+        </nav>
+    
+        <div class="editor">
+            <div class="left">
+                <textarea id="js-code">
+/* 
+your code here
+press save to update the bookmarklet button
+*/
+alert("Hello World!");
+</textarea>
+            </div>
+            <div class="right">
+                <div class="output-center">
+                    <a href="#" id="installer" class="bookmarklet-btn">Drag into bookmarklets bar</a>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="left-links">
+                <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">© Copyright 2023, Max Bunker</a>
+            </div>
+            <div class="right-links">
+                <a href="https://icons8.com/" target="_blank" rel="noopener noreferrer">images provided by <span class="url">icons8</span></a>
+            </div>
+        </footer>
+        
+    </div>
+</body>
+</html>

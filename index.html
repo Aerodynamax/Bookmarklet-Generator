@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Bookmarklet creator</title>
+    <link rel="shortcut icon" href="https://img.icons8.com/arcade/64/null/bookmark-ribbon.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="./css/global.styles.css">
+    <link rel="stylesheet" href="./css/bookmarklet.styles.css">
+
+</head>
+<body>
+    <div id="page">
+        <nav class="topbar">
+            <a href="./index.html">home</a>
+            <a href="./how.html">how it works</a>
+            <a href="./design.html">designer</a>
+        </nav>
+    
+        <div id="body">
+            <div class="header">
+                <h1>Create your own html bookmarklet!</h1>
+            </div>
+            <div class="content">
+                <h2>
+                    Simply drag the '<span class="highlight">TRY IT</span>' 
+                    button into the bookmarks bar to install!
+                </h2>
+            </div>
+            <div class="two-buttons">
+                <div class="left"><a href="javascript:(function(){let BM=document.getElementById('_BOOKMARKLET_');if(BM){BM.remove();}else{let BML=document.createElement('iframe');BML.id='_BOOKMARKLET_';BML.style.cssText='position:fixed;z-index:2147483647;top:10px;right:10px;width:300px;height:350px;background:rgb(255, 255, 255);border:1px solid rgb(241, 241, 241);border-radius:10px;box-shadow:rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;';document.body.append(BML);BML.contentDocument.body.innerHTML=decodeURIComponent(atob('JTNDIURPQ1RZUEUlMjBodG1sJTNFJTBBJTNDaHRtbCUyMGxhbmclM0QlMjJlbiUyMiUzRSUwQSUzQ2hlYWQlM0UlM0NtZXRhJTIwY2hhcnNldCUzRCUyMlVURi04JTIyJTNFJTNDbWV0YSUyMGh0dHAtZXF1aXYlM0QlMjJYLVVBLUNvbXBhdGlibGUlMjIlMjBjb250ZW50JTNEJTIySUUlM0RlZGdlJTIyJTNFJTNDbWV0YSUyMG5hbWUlM0QlMjJ2aWV3cG9ydCUyMiUyMGNvbnRlbnQlM0QlMjJ3aWR0aCUzRGRldmljZS13aWR0aCUyQyUyMGluaXRpYWwtc2NhbGUlM0QxLjAlMjIlM0UlM0N0aXRsZSUzRUJvb2ttYXJrbGV0JTIwRGVtbyUzQyUyRnRpdGxlJTNFJTNDc3R5bGUlM0UqJTIwJTdCbWFyZ2luJTNBJTIwMCUzQnBhZGRpbmclM0ElMjAwJTNCbWluLWhlaWdodCUzQSUyMDEwMCUyNSUzQiU3RGElMjAlN0Jmb250LXdlaWdodCUzQSUyMG5vcm1hbCUzQmNvbG9yJTNBJTIwcmVkJTNCJTdELkJPT0tNQVJLTEVUJTIwJTdCZGlzcGxheSUzQSUyMGZsZXglM0JmbGV4LWRpcmVjdGlvbiUzQSUyMGNvbHVtbiUzQiU3RC50aXRsZSUyMCU3QmZvbnQtZmFtaWx5JTNBJTIwJ0NvdXJpZXIlMjBOZXcnJTJDJTIwQ291cmllciUyQyUyMG1vbm9zcGFjZSUzQnRleHQtYWxpZ24lM0ElMjBjZW50ZXIlM0Jib3JkZXItYm90dG9tJTNBJTIwMXB4JTIwc29saWQlMjAlMjNmM2YyZjIlM0IlN0QuY29udGVudCUyMCU3QmZvbnQtZmFtaWx5JTNBJTIwJ0NvdXJpZXIlMjBOZXcnJTJDJTIwQ291cmllciUyQyUyMG1vbm9zcGFjZSUzQmZvbnQtd2VpZ2h0JTNBJTIwYm9sZCUzQmNvbG9yJTNBJTIwJTIzOWY5ZjlmJTNCcGFkZGluZyUzQSUyMDEwcHglM0JmbGV4LWdyb3clM0ElMjAxJTNCZmxleC1zaHJpbmslM0ElMjAwJTNCJTdELmNvbnRlbnQlMjBwJTIwJTdCcGFkZGluZyUzQSUyMDVweCUyMDAlM0IlN0QlM0MlMkZzdHlsZSUzRSUzQyUyRmhlYWQlM0UlMEElM0Nib2R5JTNFJTNDZGl2JTIwY2xhc3MlM0QlMjJCT09LTUFSS0xFVCUyMiUzRSUzQ2gxJTIwY2xhc3MlM0QlMjJ0aXRsZSUyMiUzRUJvb2ttYXJrbGV0JTIwRGVtbyUzQyUyRmgxJTNFJTNDZGl2JTIwY2xhc3MlM0QlMjJjb250ZW50JTIyJTNFJTNDcCUzRVdlbGNvbWUlMjB0byUyMHRoZSUyMHdvcmxkJTIwb2YlMjBhZHZhbmNlZCUyMGJvb2ttYXJrbGV0cyElM0NiciUzRUhlcmUlMjB5b3UlMjB3aWxsJTIwZmluZCUyMGV2ZXJ5dGhpbmclMjB5b3UlMjBuZWVkJTIwdG8lMjBzdGFydHlvdXIlMjBuZXclMjBib29rbWFyayUyMEVNUElSRSElM0MlMkZwJTNFJTNDYSUyMHRhcmdldCUzRCUyMl9wYXJlbnQlMjIlMjBocmVmJTNEJTIyaHR0cHMlM0ElMkYlMkZ3d3cueW91dHViZS5jb20lMkZ3YXRjaCUzRnYlM0RkUXc0dzlXZ1hjUSUyMiUzRWNsaWNrJTIwbWUlMjB0byUyMHNlZSUyMHlvdXIlMjBmdXR1cmUuLi4lM0MlMkZhJTNFJTNDJTJGZGl2JTNFJTNDJTJGZGl2JTNFJTBBJTNDJTJGYm9keSUzRSUwQSUzQyUyRmh0bWwlM0U='));};})();" class="bookmarklet-btn big-text">try it</a></div>
+                <pre class="big-text">OR</pre>
+                <div class="right"><a href="./design.html" class="bookmarklet-btn big-text secondary">create your own</a></div>
+            </div>
+            <!-- # TODO: Add demos
+                <div class="center-x">
+                <a class="url" href="./demos.html">other demos</a>
+            </div> -->
+
+            <div class="content">
+
+                <div class="content-subhead">
+                    What are bookmarklets?
+                </div>
+                <p>
+                    Bookmarklets are small pieces of JavaScript code 
+                    that can be saved as bookmarks in your web browser. 
+                    When you click on a bookmarklet, the code is executed 
+                    on the current web page, allowing you to perform 
+                    various tasks and manipulate the content of the page.
+                </p>
+
+                <div class="content-subhead">
+                    Why use bookmarklets?
+                </div>
+                <p>
+                    Bookmarklets can save you time and simplify tasks by 
+                    allowing you to perform common actions with just one 
+                    click. They can also help you customize web pages and 
+                    interact with other web services.
+                </p>
+                
+
+                <div class="content-subhead">
+                    Examples
+                </div>
+                <ul>
+                    <li>
+                        A bookmarklet that reads aloud a webpage
+                    </li>
+                    <li>
+                        A bookmarklet that highlights the start of all words on a web page to aid reading
+                    </li>
+                    <li>
+                        A bookmarklet that removes all ads from a web page
+                    </li>
+                    
+                </ul>
+
+                <div class="content-subhead">
+                    Bookmarklet Generator Tool
+                </div>
+                <p>
+                    Use our easy-to-use generator tool to create your own 
+                    bookmarklets. Simply enter your JavaScript code or html 
+                    website and generate a bookmarklet that you can save 
+                    to your browser.
+                </p>
+                
+
+                <div class="content-subhead">
+                    How to use bookmarklets
+                </div>
+                <p>
+                    To use a bookmarklet, simply save it as a bookmark in your 
+                    browser. You can then click on the bookmarklet when you're 
+                    on a web page to execute the code or open your extension.
+                </p>
+            </div>
+
+        </div>
+        <footer class="footer">
+            <div class="left-links">
+                <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">© Copyright 2023, Max Bunker</a>
+            </div>
+            <div class="right-links">
+                <a href="https://icons8.com/" target="_blank" rel="noopener noreferrer">images provided by <span class="url">icons8</span></a>
+            </div>
+        </footer>
+        
+    </div>
+
+</body>
+</html>
